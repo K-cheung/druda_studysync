@@ -1,0 +1,1030 @@
+[
+    {
+        "id": 1001,
+        "name": "CPEN 221",
+        "description": "CPEN 221 is an introduction to the principles and practices of software construction, providing students with the tools and skills to build robust, efficient, and maintainable software systems. The course emphasizes programming fluency in Java and covers key concepts such as static typing, specifications, testing, abstract data types, recursion, and concurrent programming.",
+        "isFavorite": true,
+        "modules": [
+            {
+                "id": 2001,
+                "name": "Module 1",
+                "topics": [
+                    {
+                        "id": 3001,
+                        "name": "CN3: The Need for Specifications",
+                        "questions": [
+                            {
+                                "id": 4001,
+                                "text": "What is the purpose of preconditions in a specification?",
+                                "options": [
+                                    "Define what the method will do after execution.",
+                                    "Define what must be true before the method is executed.",
+                                    "Specify the behavior of local variables in the method.",
+                                    "Ensure the method handles null values."
+                                ],
+                                "correctAnswer": 1,
+                                "hint": "Preconditions describe the input state before the execution of the method.",
+                                "explanation": "Preconditions act as a contract between the client and the implementer. They specify the conditions that must hold before invoking a method. For example, ensuring valid input values or checking non-null references."
+                            },
+                            {
+                                "id": 4002,
+                                "text": "Which of the following best represents a Hoare Triple?",
+                                "options": [
+                                    "{P} C {Q}",
+                                    "C(P, Q)",
+                                    "P -> Q",
+                                    "Q {P} C"
+                                ],
+                                "correctAnswer": 0,
+                                "hint": "A Hoare Triple relates preconditions, commands, and postconditions.",
+                                "explanation": "`{P} C {Q}` means that if the precondition `P` holds before executing the command `C`, then the postcondition `Q` will hold after `C` is executed."
+                            },
+                            {
+                                "id": 4003,
+                                "text": "What is the key benefit of a specification?",
+                                "options": [
+                                    "It eliminates the need for implementation testing.",
+                                    "It allows clients to understand and use the method without seeing its implementation.",
+                                    "It guarantees that the method will never throw exceptions.",
+                                    "It ensures null values are always handled automatically."
+                                ],
+                                "correctAnswer": 1,
+                                "hint": "Think about how specifications decouple clients from implementation details.",
+                                "explanation": "Specifications define the behavior of a method (what it does) without exposing how it achieves it. This abstraction allows clients to rely on the functionality without requiring them to analyze or understand the implementation."
+                            },
+                            {
+                                "id": 4004,
+                                "text": "Which of the following is a valid specification for a method to compute the area of a triangle?",
+                                "options": [
+                                    "/**\n * @param b base of the triangle\n * @param h height of the triangle\n * @return the computed area\n */",
+                                    "/**\n * @param b base of the triangle, must be greater than zero\n * @param h height of the triangle\n * @return the computed area\n */",
+                                    "/**\n * @param b base of the triangle\n * @param h height of the triangle\n * @return the computed area\n * Local variable 'area' is used for intermediate computation\n */",
+                                    "/**\n * @param b base of the triangle\n * @param h height of the triangle\n * Requires: base and height are positive integers\n * @return the computed area\n */"
+                                ],
+                                "correctAnswer": 3,
+                                "hint": "A valid specification should include preconditions and should not mention local variables.",
+                                "explanation": "The specification in option D is valid because it includes a clear precondition (`base` and `height` must be positive integers). Specifications should avoid referencing local variables, as these are implementation details."
+                            },
+                            {
+                                "id": 4005,
+                                "text": "What is wrong with the following method implementation?\n\n```java\nint product(int a, int b) {\n    int prod = 0;\n    while (a != 0) {\n        prod += b;\n        a--;\n    }\n    return prod;\n}\n```",
+                                "options": [
+                                    "It produces incorrect results when `b` is negative.",
+                                    "It does not handle negative values for `a`.",
+                                    "It lacks a postcondition in its specification.",
+                                    "It requires too many iterations for large values of `a`."
+                                ],
+                                "correctAnswer": 1,
+                                "hint": "Consider what happens if `a` is negative.",
+                                "explanation": "The method does not correctly handle cases where `a` is negative. Adding a precondition like `a >= 0` in the specification would make the method correct."
+                            },
+                            {
+                                "id": 4006,
+                                "text": "What is the correct precondition for this specification?\n\n```java\n// Specification:\n// Requires: The input array contains at least one element\n// Effects: Returns the maximum value in the array\nint findMax(int[] arr);\n```",
+                                "options": [
+                                    "`arr != null`",
+                                    "`arr.length > 0`",
+                                    "`arr != null && arr.length > 0`",
+                                    "`arr != null || arr.length > 0`"
+                                ],
+                                "correctAnswer": 2,
+                                "hint": "Both null checks and array length checks are essential.",
+                                "explanation": "The method requires a non-null array with at least one element. This ensures the method does not throw a `NullPointerException` or access an empty array."
+                            },
+                            {
+                                "id": 4007,
+                                "text": "In a specification, which of the following is considered a postcondition?",
+                                "options": [
+                                    "A description of the parameters required before calling a method.",
+                                    "An assertion about the method's return value after execution.",
+                                    "A statement about the intermediate values of local variables.",
+                                    "A restriction on the method's implementation details."
+                                ],
+                                "correctAnswer": 1,
+                                "hint": "Postconditions describe the result of executing the method.",
+                                "explanation": "Postconditions describe the expected state after a method's execution, such as constraints on the return value or the state of the program."
+                            },
+                            {
+                                "id": 4008,
+                                "text": "What is the purpose of using preconditions and postconditions?",
+                                "options": [
+                                    "To define local variables used during method execution.",
+                                    "To ensure the client and implementer agree on the method’s expected behavior.",
+                                    "To enforce null handling in all methods.",
+                                    "To eliminate runtime exceptions."
+                                ],
+                                "correctAnswer": 1,
+                                "hint": "Think about the contract between the client and implementer.",
+                                "explanation": "Preconditions and postconditions define a contract: the client ensures the precondition is true before calling the method, and the implementer ensures the postcondition holds after execution."
+                            },
+                            {
+                                "id": 4009,
+                                "text": "What is the behavioral equivalence of these two methods?\n\n```java\n// Method 1\nint findA(int[] a, int val) {\n    for (int i = 0; i < a.length; i++) {\n        if (a[i] == val) return i;\n    }\n    return -1;\n}\n\n// Method 2\nint findB(int[] a, int val) {\n    for (int i = a.length - 1; i >= 0; i--) {\n        if (a[i] == val) return i;\n    }\n    return -1;\n}\n```",
+                                "options": [
+                                    "Both methods always return the same result.",
+                                    "Both methods are behaviorally equivalent.",
+                                    "They are behaviorally equivalent only if `val` appears exactly once in the array.",
+                                    "Neither method is behaviorally equivalent."
+                                ],
+                                "correctAnswer": 2,
+                                "hint": "Analyze how the methods behave when `val` appears multiple times.",
+                                "explanation": "If `val` appears exactly once, both methods return the same result. If `val` appears multiple times, Method 1 returns the first occurrence, and Method 2 returns the last occurrence."
+                            },
+                            {
+                                "id": 4010,
+                                "text": "Which of the following best represents a clear specification?\n\nOption A:\n```java\n/**\n * @param x the input value\n * Returns: The square of x\n */\n```\n\nOption B:\n```java\n/**\n * @param x the input value\n * @return The square of x\n * Effects: Local variable y is used to compute the result\n */\n```\n\nOption C:\n```java\n/**\n * Requires: x >= 0\n * Effects: Returns the square of x\n */\n```\n\nOption D:\n```java\n/**\n * Requires: x is a non-negative integer\n * Effects: Returns the square of x\n */\n```",
+                                "options": [
+                                    "Option A",
+                                    "Option B",
+                                    "Option C",
+                                    "Option D"
+                                ],
+                                "correctAnswer": 3,
+                                "hint": "Consider clarity and completeness.",
+                                "explanation": "The specification in Option D is clear and complete. It defines the precondition (`x is a non-negative integer`) and postcondition (`returns the square of x`) without referencing implementation details like local variables."
+                            }
+                        ]
+                    },
+                    {
+                        "id": 3002,
+                        "name": "CN6: Exceptions",
+                        "questions": [
+                            {
+                                "id": 4011,
+                                "text": "What is the primary purpose of exceptions in programming?",
+                                "options": [
+                                    "To handle errors and other exceptional events during program execution.",
+                                    "To provide a way to exit a program immediately.",
+                                    "To improve the performance of a program.",
+                                    "To replace conditional statements like if-else."
+                                ],
+                                "correctAnswer": 0,
+                                "hint": "Think about error handling mechanisms.",
+                                "explanation": "Exceptions provide a mechanism to handle errors or unexpected events in a controlled manner, allowing the program to respond appropriately or terminate gracefully."
+                            },
+                            {
+                                "id": 4012,
+                                "text": "Which of the following is a checked exception in Java?",
+                                "options": [
+                                    "NullPointerException",
+                                    "IOException",
+                                    "ArithmeticException",
+                                    "ArrayIndexOutOfBoundsException"
+                                ],
+                                "correctAnswer": 1,
+                                "hint": "Checked exceptions must be declared or handled.",
+                                "explanation": "IOException is a checked exception, which must be either caught or declared in the method's throws clause."
+                            },
+                            {
+                                "id": 4013,
+                                "text": "How do you create a custom exception in Java?",
+                                "options": [
+                                    "By extending the Exception class.",
+                                    "By implementing the Throwable interface.",
+                                    "By overriding the throw keyword.",
+                                    "By extending the Error class."
+                                ],
+                                "correctAnswer": 0,
+                                "hint": "Custom exceptions are usually subclasses of Exception.",
+                                "explanation": "To create a custom exception, you define a new class that extends Exception or one of its subclasses."
+                            }
+                        ]
+                    },
+                    {
+                        "id": 3003,
+                        "name": "CN7: Testing and Code Review",
+                        "questions": [
+                            {
+                                "id": 4014,
+                                "text": "What is unit testing?",
+                                "options": [
+                                    "Testing individual units or components of software.",
+                                    "Testing the integration between different software modules.",
+                                    "Testing the performance of the software under load.",
+                                    "Testing the software from the user's perspective."
+                                ],
+                                "correctAnswer": 0,
+                                "hint": "Think about testing small parts of the code in isolation.",
+                                "explanation": "Unit testing involves testing individual components or functions to ensure they work correctly on their own."
+                            },
+                            {
+                                "id": 4015,
+                                "text": "Which of the following is a benefit of code reviews?",
+                                "options": [
+                                    "They reduce the need for testing.",
+                                    "They improve code quality by catching issues early.",
+                                    "They slow down the development process.",
+                                    "They eliminate the need for documentation."
+                                ],
+                                "correctAnswer": 1,
+                                "hint": "Consider how code reviews impact code quality.",
+                                "explanation": "Code reviews help identify defects, improve code readability, and promote knowledge sharing, leading to higher code quality."
+                            },
+                            {
+                                "id": 4016,
+                                "text": "What is test-driven development (TDD)?",
+                                "options": [
+                                    "Writing tests after writing the code.",
+                                    "Writing code and tests simultaneously.",
+                                    "Writing tests before writing the code.",
+                                    "Only testing the code manually."
+                                ],
+                                "correctAnswer": 2,
+                                "hint": "In TDD, tests guide the development process.",
+                                "explanation": "In test-driven development, developers write tests before writing the code that will make the tests pass."
+                            }
+                        ]
+                    },
+                    {
+                        "id": 3004,
+                        "name": "CN8: Designing Specifications",
+                        "questions": [
+                            {
+                                "id": 4017,
+                                "text": "Why is it important to have clear and precise specifications?",
+                                "options": [
+                                    "They make the code run faster.",
+                                    "They reduce the need for code comments.",
+                                    "They help ensure that the software meets the requirements and is correctly implemented.",
+                                    "They allow developers to skip the testing phase."
+                                ],
+                                "correctAnswer": 2,
+                                "hint": "Consider the role of specifications in the development lifecycle.",
+                                "explanation": "Clear specifications provide a solid foundation for development, ensuring that the software meets user needs and functions as intended."
+                            },
+                            {
+                                "id": 4018,
+                                "text": "Which of the following is a characteristic of a good specification?",
+                                "options": [
+                                    "Ambiguous and open to interpretation.",
+                                    "Detailed and precise.",
+                                    "Includes implementation details.",
+                                    "Written in a programming language."
+                                ],
+                                "correctAnswer": 1,
+                                "hint": "Good specifications should be unambiguous.",
+                                "explanation": "Good specifications are detailed, precise, and unambiguous, allowing developers to understand exactly what is required."
+                            },
+                            {
+                                "id": 4019,
+                                "text": "In designing specifications, what is an 'abstraction barrier'?",
+                                "options": [
+                                    "A security mechanism to prevent unauthorized access.",
+                                    "A concept that separates the specification of a module from its implementation.",
+                                    "A physical barrier in the system architecture.",
+                                    "An error that occurs when abstract classes are not properly used."
+                                ],
+                                "correctAnswer": 1,
+                                "hint": "It's about separating concerns between different parts of the code.",
+                                "explanation": "An abstraction barrier is a design principle that separates the interface (specification) of a module from its implementation, allowing changes to the implementation without affecting clients."
+                            }
+                        ]
+                    },
+                    {
+                        "id": 3005,
+                        "name": "CN9: Debugging",
+                        "questions": [
+                            {
+                                "id": 4020,
+                                "text": "Which of the following is NOT a common debugging technique?",
+                                "options": [
+                                    "Using a debugger tool to step through code.",
+                                    "Adding print statements to check variable values.",
+                                    "Ignoring exceptions to see if the program still runs.",
+                                    "Writing unit tests to isolate functionality."
+                                ],
+                                "correctAnswer": 2,
+                                "hint": "Consider which technique might worsen the problem.",
+                                "explanation": "Ignoring exceptions can hide errors and make debugging more difficult. It's important to handle exceptions appropriately."
+                            },
+                            {
+                                "id": 4021,
+                                "text": "What is the first step in the debugging process?",
+                                "options": [
+                                    "Fixing the code immediately.",
+                                    "Understanding and reproducing the problem.",
+                                    "Optimizing the code for performance.",
+                                    "Refactoring the entire codebase."
+                                ],
+                                "correctAnswer": 1,
+                                "hint": "You need to know what the problem is before you can fix it.",
+                                "explanation": "The first step is to understand and reproduce the problem, which allows you to investigate the cause and find a solution."
+                            },
+                            {
+                                "id": 4022,
+                                "text": "Why is it important to have a minimal reproducible example when debugging?",
+                                "options": [
+                                    "It helps to reduce code size for deployment.",
+                                    "It makes the code run faster.",
+                                    "It isolates the issue, making it easier to identify and fix.",
+                                    "It impresses team members with concise code."
+                                ],
+                                "correctAnswer": 2,
+                                "hint": "Think about simplifying the problem to its core components.",
+                                "explanation": "A minimal reproducible example removes unnecessary code, isolating the problem and making it easier to identify the cause and implement a fix."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 2002,
+                "name": "Module 2",
+                "topics": [
+                    {
+                        "id": 3006,
+                        "name": "CN10: Mutability and Immutability",
+                        "questions": [
+                            {
+                                "id": 4023,
+                                "text": "What is the primary difference between mutable and immutable objects?",
+                                "options": [
+                                    "Mutable objects can change state after creation, immutable objects cannot.",
+                                    "Mutable objects are faster than immutable objects.",
+                                    "Immutable objects can change state after creation, mutable objects cannot.",
+                                    "Mutable objects cannot be shared between threads."
+                                ],
+                                "correctAnswer": 0,
+                                "hint": "Consider the ability to alter the object's data after it's created.",
+                                "explanation": "Mutable objects can have their state changed after creation, while immutable objects' state cannot be altered."
+                            },
+                            {
+                                "id": 4024,
+                                "text": "Which of the following is an example of an immutable class in Java?",
+                                "options": [
+                                    "StringBuilder",
+                                    "ArrayList",
+                                    "String",
+                                    "HashMap"
+                                ],
+                                "correctAnswer": 2,
+                                "hint": "Think about commonly used classes that cannot change once created.",
+                                "explanation": "The String class in Java is immutable; once created, its value cannot be changed."
+                            },
+                            {
+                                "id": 4025,
+                                "text": "Why might immutable objects be preferable in a multi-threaded environment?",
+                                "options": [
+                                    "They use less memory.",
+                                    "They are inherently thread-safe since their state cannot change.",
+                                    "They execute faster.",
+                                    "They prevent any runtime exceptions."
+                                ],
+                                "correctAnswer": 1,
+                                "hint": "Consider how object state changes affect thread safety.",
+                                "explanation": "Immutable objects are thread-safe because their state cannot be altered, eliminating the risk of concurrent modifications."
+                            }
+                        ]
+                    },
+                    {
+                        "id": 3007,
+                        "name": "CN12: Introduction to Abstract Data Types",
+                        "questions": [
+                            {
+                                "id": 4026,
+                                "text": "What is an Abstract Data Type (ADT)?",
+                                "options": [
+                                    "A data type defined by its implementation.",
+                                    "A data type defined by its behavior from the point of view of a user, of the data, specifically in terms of possible values and operations on data.",
+                                    "A data type that can only hold abstract classes.",
+                                    "A data type that is used only in abstract classes."
+                                ],
+                                "correctAnswer": 1,
+                                "hint": "ADTs focus on what operations are performed, not how they are implemented.",
+                                "explanation": "An ADT is a model for data types where the data type is defined by its behavior from the point of view of a user, focusing on the operations that can be performed."
+                            },
+                            {
+                                "id": 4027,
+                                "text": "Which of the following is an example of an ADT?",
+                                "options": [
+                                    "int",
+                                    "float",
+                                    "List",
+                                    "double"
+                                ],
+                                "correctAnswer": 2,
+                                "hint": "Consider data structures that define operations without specifying implementation.",
+                                "explanation": "List is an example of an ADT, as it defines a set of operations without specifying how those operations are implemented."
+                            },
+                            {
+                                "id": 4028,
+                                "text": "Why are ADTs important in software engineering?",
+                                "options": [
+                                    "They enforce data encapsulation and abstraction.",
+                                    "They make code run faster.",
+                                    "They are required by all programming languages.",
+                                    "They eliminate the need for testing."
+                                ],
+                                "correctAnswer": 0,
+                                "hint": "Think about how ADTs promote modularity and encapsulation.",
+                                "explanation": "ADTs allow developers to focus on the interface and behavior of data structures, promoting encapsulation and abstraction, which leads to better modularity and maintainability."
+                            }
+                        ]
+                    },
+                    {
+                        "id": 3008,
+                        "name": "CN13: Representation Invariants and Abstraction Functions",
+                        "questions": [
+                            {
+                                "id": 4029,
+                                "text": "What is a representation invariant in the context of ADTs?",
+                                "options": [
+                                    "A condition that must always hold true for the internal state of an object.",
+                                    "A function that maps abstract values to concrete representations.",
+                                    "An immutable data structure.",
+                                    "A method used to compare two objects for equality."
+                                ],
+                                "correctAnswer": 0,
+                                "hint": "Think about internal consistency conditions.",
+                                "explanation": "A representation invariant is a condition that defines the valid states for an object's internal data."
+                            },
+                            {
+                                "id": 4030,
+                                "text": "What is the purpose of an abstraction function?",
+                                "options": [
+                                    "To convert abstract values to concrete representations.",
+                                    "To define how the concrete representation maps to the abstract value.",
+                                    "To enforce immutability in data types.",
+                                    "To handle exceptions in data conversion."
+                                ],
+                                "correctAnswer": 1,
+                                "hint": "It relates the implementation to the specification.",
+                                "explanation": "An abstraction function maps the concrete state of an object to an abstract value that the specification describes."
+                            }
+                        ]
+                    },
+                    {
+                        "id": 3009,
+                        "name": "CN14: Equality",
+                        "questions": [
+                            {
+                                "id": 4031,
+                                "text": "In Java, what is the difference between `==` and `equals()` when comparing objects?",
+                                "options": [
+                                    "`==` compares object references, `equals()` compares object content.",
+                                    "`==` compares object content, `equals()` compares object references.",
+                                    "`==` and `equals()` function identically.",
+                                    "`==` is used for strings, `equals()` is used for numbers."
+                                ],
+                                "correctAnswer": 0,
+                                "hint": "Consider reference equality vs. value equality.",
+                                "explanation": "`==` checks if two references point to the same object in memory, whereas `equals()` is meant to compare the values within the objects."
+                            }
+                        ]
+                    },
+                    {
+                        "id": 3010,
+                        "name": "CN15: Subtyping",
+                        "questions": [
+                            {
+                                "id": 4032,
+                                "text": "What does subtyping allow in object-oriented programming?",
+                                "options": [
+                                    "Objects of a subtype to be used wherever objects of a supertype are expected.",
+                                    "Objects to inherit methods from multiple classes.",
+                                    "Classes to have multiple constructors.",
+                                    "Variables to hold values of different primitive types."
+                                ],
+                                "correctAnswer": 0,
+                                "hint": "Think about the Liskov Substitution Principle.",
+                                "explanation": "Subtyping allows a subtype object to be substituted in any place where a supertype object is expected."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 2003,
+                "name": "Module 3",
+                "topics": [
+                    {
+                        "id": 3011,
+                        "name": "CN4: A Model of Computer Systems",
+                        "questions": [
+                            {
+                                "id": 8001,
+                                "text": "How do interrupts improve the efficiency of the CPU compared to polling, and what happens during the interrupt handling process?",
+                                "options": [
+                                    "Interrupts allow the CPU to remain idle until data is available, saving energy.",
+                                    "Interrupts enable the CPU to respond to events asynchronously, without constantly checking for input, by executing an interrupt handler when a signal is received.",
+                                    "Interrupts are slower than polling because they involve saving and restoring the CPU state.",
+                                    "Interrupts eliminate the need for device drivers when interacting with hardware."
+                                ],
+                                "correctAnswer": 1,
+                                "hint": "Interrupts let the CPU avoid constant checking by responding only when needed. The CPU saves its state, runs the interrupt handler, and resumes its task",
+                                "explanation": "Interrupts let the CPU avoid constant checking by responding only when needed. The CPU saves its state, runs the interrupt handler, and resumes its task."
+                            },
+                            {
+                                "id": 8002,
+                                "text": "What is the purpose of multitasking in modern computers, and how does it enable a CPU to manage multiple threads or processes?",
+                                "options": [
+                                    "Multitasking allows the CPU to focus exclusively on a single task for extended periods.",
+                                    "Multitasking enables the CPU to execute multiple tasks simultaneously using multiple cores and timesharing, switching between threads or processes as needed.",
+                                    "Multitasking is used only in supercomputers and not in personal computers or smartphones.",
+                                    "Multitasking eliminates the need for an operating system by distributing tasks equally to hardware."
+                                ],
+                                "correctAnswer": 1,
+                                "hint": "Multitasking switches the CPU's focus between tasks efficiently.",
+                                "explanation": "Multitasking switches the CPU between threads or processes efficiently using timesharing and multiple cores."
+                            }
+                        ]
+                    },
+                    {
+                        "id": 3012,
+                        "name": "CN5: A Brief History of a Program",
+                        "questions": [
+                            {
+                                "id": 8003,
+                                "text": "What is the first step in executing a C program, and what does it involve",
+                                "options": [
+                                    "Running the program directly in the operating system without any preprocessing.",
+                                    "Loading the program into memory and giving it direct access to the microprocessor.",
+                                    "Compiling the program, which involves lexical analysis, parsing, and generating assembly language for the target architecture.",
+                                    "Interpreting the program line by line during runtime without generating assembly language."
+                                ],
+                                "correctAnswer": 2,
+                                "hint": "Think about the role of the compiler in transforming plain text code into something the hardware can understand.",
+                                "explanation": "Compiling translates the code into assembly language for the target architecture."
+                            },
+                            {
+                                "id": 8004,
+                                "text": "What happens to the stack pointer (esp) when a 32-bit integer is pushed onto the stack at address 0x4fea?",
+                                "options": [
+                                    "The new top of the stack will be at 0x4fe6.",
+                                    "The new top of the stack will be at 0x4fee.",
+                                    "The new top of the stack will remain at 0x4fea.",
+                                    "The new top of the stack will be at 0x4fe2."
+                                ],
+                                "correctAnswer": 0,
+                                "hint": "The stack grows towards lower memory addresses, and a 32-bit integer occupies 4 bytes.",
+                                "explanation": "Correct. The stack grows towards lower memory addresses, and pushing a 32-bit integer decreases the esp by 4 bytes, moving the stack pointer to 0x4fe6."
+                            }
+                        ]
+                    },
+                    {
+                        "id": 3013,
+                        "name": "CN11: Recursion",
+                        "questions": [
+                            {
+                                "id": 4033,
+                                "text": "What is recursion in programming?",
+                                "options": [
+                                    "A technique where a function calls itself.",
+                                    "A way to iterate over arrays.",
+                                    "A method to handle exceptions.",
+                                    "A process of defining variables."
+                                ],
+                                "correctAnswer": 0,
+                                "hint": "Think about functions that call themselves.",
+                                "explanation": "Recursion occurs when a function calls itself directly or indirectly, allowing for problems to be solved in terms of smaller subproblems."
+                            },
+                            {
+                                "id": 4034,
+                                "text": "Which of the following is essential for a recursive function to terminate?",
+                                "options": [
+                                    "A loop condition.",
+                                    "A base case.",
+                                    "An exception handler.",
+                                    "A return statement."
+                                ],
+                                "correctAnswer": 1,
+                                "hint": "Consider what prevents infinite recursion.",
+                                "explanation": "A base case is essential in recursion; it defines the condition under which the recursion ends."
+                            }
+                        ]
+                    },
+                    {
+                        "id": 3014,
+                        "name": "CN16: Recursive Types",
+                        "questions": [
+                            {
+                                "id": 8005,
+                                "text": "What is the key characteristic of a recursive datatype?",
+                                "options": [
+                                    "It uses arrays as its core data structure.",
+                                    "It requires mutable structures for proper implementation.",
+                                    "It cannot represent tree structures.",
+                                    "It defines objects in terms of smaller objects of the same type."
+                                ],
+                                "correctAnswer": 3,
+                                "hint": "Look for a datatype that is defined in terms of itself.",
+                                "explanation": "Recursive datatypes are defined in terms of smaller versions of themselves, making them well-suited for representing lists and trees."
+                            },
+                            {
+                                "id": 8006,
+                                "text": "What happens when you call the cons operation on an immutable list?",
+                                "options": [
+                                    "It modifies the existing list to add a new element at the front.",
+                                    "It creates a new list by prepending the element, leaving the original list unchanged.",
+                                    "It removes the first element of the list and returns the rest.",
+                                    "It throws an exception if the list is empty."
+                                ],
+                                "correctAnswer": 1,
+                                "hint": "Focus on how new lists are created without changing the original list.",
+                                "explanation": "An empty list can be represented by the Empty class, which doesn't require any other list."
+                            }
+                        ]
+                    },
+                    {
+                        "id": 3015,
+                        "name": "CN17: Lambdas and Streams",
+                        "questions": [
+                            {
+                                "id": 8007,
+                                "text": "Which feature in Java allows the creation of concise comparator functions for sorting, as shown in the example with Arrays.sort(words, (s1, s2) -> s1.length() - s2.length())?",
+                                "options": [
+                                    "Class Instance Creation Expression (CICE)",
+                                    "Lambda function",
+                                    "Functional Interface",
+                                    "Method Overloading"
+                                ],
+                                "correctAnswer": 1,
+                                "hint": "This feature eliminates the need for explicit class creation and uses a simple, inline expression for the function.",
+                                "explanation": "Lambda functions in Java allow the creation of concise, anonymous functions that can be passed as arguments, as demonstrated in the sorting example."
+                            },
+                            {
+                                "id": 8008,
+                                "text": "Which of the following is NOT a benefit of using the map/filter/reduce design pattern for handling sequences of data?",
+                                "options": [
+                                    "Eliminates the need for explicit control flow such as loops",
+                                    "Reduces the complexity of managing multiple sequences",
+                                    "Allows functions to be used as first-class data values",
+                                    "Requires the use of for loops to iterate through elements"
+                                ],
+                                "correctAnswer": 3,
+                                "hint": "The map/filter/reduce pattern emphasizes functional approaches to handling sequences without direct control flow like for loops.",
+                                "explanation": "The map/filter/reduce pattern avoids explicit loops or conditionals, simplifying the code by abstracting iteration and control flow."
+                            }
+                        ]
+                    },
+                    {
+                        "id": 3016,
+                        "name": "CN19: Grammars",
+                        "questions": [
+                            {
+                                "id": 8009,
+                                "text": "Which of the following is NOT part of a grammar's production rule?",
+                                "options": [
+                                    "Tokens",
+                                    "Nonterminals",
+                                    "Operators",
+                                    "Strings"
+                                ],
+                                "correctAnswer": 3,
+                                "hint": "These are the essential components involved in defining the structure of sequences, excluding any actual example sequences like a string.",
+                                "explanation": "Grammars consist of tokens, nonterminals, and operators, but strings are the output generated by the grammar, not part of its production rules."
+                            },
+                            {
+                                "id": 8010,
+                                "text": "In the grammar rule expr ::= term ('+' term)*, what does the operator * indicate?",
+                                "options": [
+                                    "The term can appear one or more times.",
+                                    "The term is optional.",
+                                    "The term can appear zero or more times.",
+                                    "The term must appear exactly once."
+                                ],
+                                "correctAnswer": 2,
+                                "hint": "The operator * is used to specify how many times a part of the rule can repeat.",
+                                "explanation": "The * operator indicates that the part can repeat zero or more times, as seen in the rule expr ::= term ('+' term)*."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 2004,
+                "name": "Module 4",
+                "topics": [
+                    {
+                        "id": 3017,
+                        "name": "CN18: Introduction to Concurrency",
+                        "questions": [
+                            {
+                                "id": 8011,
+                                "text": "What is the main difference between parallelism and concurrency in programming?",
+                                "options": [
+                                    "Parallelism improves performance with more resources; concurrency manages access to shared resources.",
+                                    "Parallelism manages shared resources; concurrency improves performance.",
+                                    "Parallelism and concurrency are the same.",
+                                    "Parallelism applies to sequential programs, concurrency to multithreaded ones."
+                                ],
+                                "correctAnswer": 0,
+                                "hint": "One concept deals with using multiple resources to perform tasks faster, while the other deals with managing tasks that might share resources to avoid conflicts.",
+                                "explanation": "Parallelism improves performance; concurrency manages access to shared resources."
+                            },
+                            {
+                                "id": 8012,
+                                "text": "Which is true about multithreaded programming?",
+                                "options": [
+                                    "Needed only with multiple processors.",
+                                    "Complex due to thread coordination for shared data.",
+                                    "Always faster than sequential programming.",
+                                    "Only useful for operating systems."
+                                ],
+                                "correctAnswer": 1,
+                                "hint": "Think about the challenges that arise when multiple threads access the same data or perform tasks simultaneously.",
+                                "explanation": "It complicates software due to thread coordination"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 3018,
+                        "name": "CN20: Network Programming",
+                        "questions": [
+                            {
+                                "id": 8013,
+                                "text": "What is the main difference between parallel programming and concurrent programming?",
+                                "options": [
+                                    "Parallel programming involves controlling access to shared resources, while concurrent programming involves speeding up computations.",
+                                    "Parallel programming involves speeding up computations by using multiple resources, while concurrent programming focuses on coordinating access to shared resources.",
+                                    "Parallel programming is about managing shared resources, while concurrent programming is about splitting tasks into smaller jobs.",
+                                    "There is no difference; both terms mean the same thing."
+                                ],
+                                "correctAnswer": 1,
+                                "hint": "One term focuses on improving computational speed with multiple resources, while the other addresses managing resources when multiple tasks are involved.",
+                                "explanation": "Parallel programming aims to use additional resources (e.g., processors) to perform tasks faster, whereas concurrent programming deals with managing multiple threads and ensuring they access shared resources correctly."
+                            },
+                            {
+                                "id": 8014,
+                                "text": "In the cooking analogy for parallelism, what is the equivalent of having more cooks or resources to finish a large meal?",
+                                "options": [
+                                    "Adding more people to chop a single potato into smaller pieces",
+                                    "Having a single cook do everything alone to avoid miscommunication.",
+                                    "Using extra utensils or helpers to speed up the process.",
+                                    "Cooking the same meal at different times to avoid coordination issues."
+                                ],
+                                "correctAnswer": 2,
+                                "hint": "This part of the analogy relates to speeding up a task by using more resources simultaneously, but with diminishing returns after a point.",
+                                "explanation": "In parallelism, more resources (like additional cooks or tools) can help finish a large meal faster, similar to how more computational resources can speed up processing tasks."
+                            }
+                        ]
+                    },
+                    {
+                        "id": 3019,
+                        "name": "CN21: ForkJoin Parallelism",
+                        "questions": [
+                            {
+                                "id": 8015,
+                                "text": "What is the main advantage of parallelism when summing an array?",
+                                "options": [
+                                    "It divides the array into chunks and sums them simultaneously, speeding up computation.",
+                                    "It reduces memory usage.",
+                                    "It sums the array in one step.",
+                                    "It eliminates the need to divide the array."
+                                ],
+                                "correctAnswer": 0,
+                                "hint": "Parallelism involves splitting tasks and using multiple processors, which contrasts with the sequential method where each operation is done step by step.",
+                                "explanation": "Parallelism speeds up the summing process by dividing the array into equal segments and using multiple processors to sum each segment simultaneously, followed by combining the results."
+                            },
+                            {
+                                "id": 8016,
+                                "text": "What is a key feature of a forall loop in parallel programming?",
+                                "options": [
+                                    "It runs sequentially, like a regular for loop.",
+                                    "It executes iterations one after another.",
+                                    "It runs all iterations in parallel without interference.",
+                                    "It allows parallel execution but no synchronization"
+                                ],
+                                "correctAnswer": 2,
+                                "hint": "A forall loop promises that its iterations can be run concurrently, but with care to avoid conflicts when reading or writing shared data.",
+                                "explanation": "The forall loop allows parallel execution of all iterations but ensures no interference by preventing one iteration from affecting the results of another."
+                            }
+                        ]
+                    },
+                    {
+                        "id": 3020,
+                        "name": "CN22A: Shared Memory",
+                        "questions": [
+                            {
+                                "id": 8017,
+                                "text": "What is the main issue with concurrent access to shared memory in the BankAccount example?",
+                                "options": [
+                                    "Multiple threads may never access the same memory location.",
+                                    "The program is guaranteed to execute correctly regardless of thread scheduling.",
+                                    "Multiple threads can modify the same memory location, leading to data inconsistencies.",
+                                    "The program will always execute in the same order, avoiding any conflicts."
+                                ],
+                                "correctAnswer": 2,
+                                "hint": "Consider the problem that occurs when two threads attempt to access and modify the same bank account balance simultaneously.",
+                                "explanation": "The main issue is that when multiple threads try to read from and write to the same balance field, it can lead to inconsistent data. Without synchronization, the threads can interleave in such a way that they both operate on outdated data, causing incorrect balance updates."
+                            },
+                            {
+                                "id": 8018,
+                                "text": "Why might using locks be necessary in a multithreaded program?",
+                                "options": [
+                                    "Locks prevent threads from running in parallel, ensuring only one thread executes at a time.",
+                                    "Locks ensure that threads can access shared resources in an orderly and coordinated manner.",
+                                    "Locks speed up the execution of the program by allowing threads to run simultaneously.",
+                                    "Locks are not needed in multithreaded programs."
+                                ],
+                                "correctAnswer": 1,
+                                "hint": "Think about the role of locks in coordinating thread access to shared resources and preventing errors due to multiple threads accessing the same data at the same time.",
+                                "explanation": "Locks are used to ensure that only one thread can access a shared resource at a time, preventing data races and ensuring that operations on shared data are performed without interference from other threads. This is crucial in scenarios where data integrity must be maintained."
+                            }
+                        ]
+                    },
+                    {
+                        "id": 3021,
+                        "name": "CN22B: Data Races",
+                        "questions": [
+                            {
+                                "id": 8019,
+                                "text": "What is a data race?",
+                                "options": [
+                                    "When two threads access a shared resource, but only one of them writes to it.",
+                                    "When two threads attempt to read the same resource at the same time.",
+                                    "When two threads attempt to access the same resource simultaneously, and at least one of them writes to it.",
+                                    "I don't know."
+                                ],
+                                "correctAnswer": 2,
+                                "hint": "Think about simultaneous read and write operations on the same resource.",
+                                "explanation": "A data race occurs when two threads access the same resource at the same time, and at least one of them writes to the resource. This situation can cause unpredictable behavior in the program. Simply reading at the same time doesn't cause a data race."
+                            },
+                            {
+                                "id": 8020,
+                                "text": "Why is synchronization important in concurrent programming?",
+                                "options": [
+                                    "It increases the speed of program execution by allowing multiple threads to run in parallel.",
+                                    "It ensures that only one thread can access a resource at a time, preventing conflicts.",
+                                    "It reduces the number of threads needed to complete a task.",
+                                    "It allows threads to run at the same time without any restrictions."
+                                ],
+                                "correctAnswer": 1,
+                                "hint": "Think about what happens when multiple threads try to access the same resource at once.",
+                                "explanation": "Synchronization ensures that only one thread can access a resource at a time, preventing conflicts like data races or bad interleavings. Without it, multiple threads might interfere with each other, leading to incorrect behavior in the program"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 3022,
+                        "name": "CN23 Thread",
+                        "questions": [
+                            {
+                                "id": 8021,
+                                "text": "What does synchronization in multithreading prevent?",
+                                "options": [
+                                    "Memory leaks",
+                                    "Conflicts like data races or bad interleavings",
+                                    "Slow performance",
+                                    "Infinite loops"
+                                ],
+                                "correctAnswer": 1,
+                                "hint": "Synchronization ensures only one thread accesses a resource at a time.",
+                                "explanation": "Synchronization prevents threads from interfering with each other when accessing shared resources, avoiding issues like data races and incorrect behavior due to improper interleaving"
+                            },
+                            {
+                                "id": 8022,
+                                "text": "Why is synchronization necessary in multithreaded programs?",
+                                "options": [
+                                    "To make the program run faster",
+                                    "To ensure multiple threads can be access resources simultaneously",
+                                    "To prevent threads from interfering with each other",
+                                    "To reduce the number of threads used"
+                                ],
+                                "correctAnswer": 2,
+                                "hint": "Synchronization helps manage how threads interact with shared resources.",
+                                "explanation": "Synchronization is necessary to prevent conflicts where multiple threads may attempt to access or modify shared resources simultaneously, leading to unpredictable or incorrect results."
+                            }
+                        ]
+                    },
+                    {
+                        "id": 3023,
+                        "name": "CN24: Safe Concurrent Programs",
+                        "questions": [
+                            {
+                                "id": 8023,
+                                "text": "What is the primary benefit of making memory thread-local or immutable in concurrent programming?",
+                                "options": [
+                                    "It reduces the need for synchronization, making the program more efficient.",
+                                    "It increases memory usages.",
+                                    "It simplifies debugging of concurrent programs.",
+                                    "It ensures that memory is always shared among threads"
+                                ],
+                                "correctAnswer": 0,
+                                "hint": "Making memory thread-local or immutable minimizes the need for locks and race condition management",
+                                "explanation": "Thread-local memory (accessible only by one thread) and immutable memory (cannot be modified after initialization) avoid the need for synchronization mechanisms, simplifying concurrent programming and improving performance."
+                            },
+                            {
+                                "id": 8024,
+                                "text": "Which guideline helps avoid data races in concurrent programming?",
+                                "options": [
+                                    "Use one lock for the entire program.",
+                                    "Avoid using any locks.",
+                                    "Use consistent locking for each location that needs synchronization.",
+                                    "Always use fine-grained locking."
+                                ],
+                                "correctAnswer": 2,
+                                "hint": "Ensure that synchronization mechanisms are consistently applied to shared memory locations.",
+                                "explanation": "Consistent locking ensures that each shared memory location has a dedicated lock, preventing data races where multiple threads access the same memory simultaneously"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1002,
+        "name": "MATH 220",
+        "description": "This course introduces the fundamentals of mathematical reasoning, focusing on the development and application of formal proof techniques, including direct proofs, proof by contradiction, induction, and counterexamples, while exploring foundational concepts in logic and set theory.",
+        "isFavorite": true,
+        "modules": [
+            {
+                "id": 7001,
+                "name": "WEEK 1-2",
+                "topics": [
+                    {
+                        "id": 9001,
+                        "name": "WEEK 1",
+                        "questions": [
+                            {
+                                "id": 6001,
+                                "text": "What does the symbol ∃ represent in mathematical proofs?",
+                                "options": [
+                                    "For all",
+                                    "There exists",
+                                    "Implies",
+                                    "If and only if"
+                                ],
+                                "correctAnswer": 1,
+                                "hint": "It's often used to assert the existence of at least one element satisfying a condition",
+                                "explanation": ": The symbol ∃ (there exists) is used to indicate that at least one element in a specified set satisfies a given condition."
+                            },
+                            {
+                                "id": 6002,
+                                "text": "What does the symbol ∴ indicate in a mathematical proof?",
+                                "options": [
+                                    "Logical equivalence",
+                                    "Therefore",
+                                    "Negation",
+                                    "Contradiction"
+                                ],
+                                "correctAnswer": 1,
+                                "hint": "It's commonly used to conclude a statement or show the result of reasoning",
+                                "explanation": "The symbol ∴ (therefore) is used to indicate that the statement following it is a logical conclusion based on the preceding arguments."
+                            },
+                            {
+                                "id": 6003,
+                                "text": "What does ∅ represent in the context of set theory?",
+                                "options": [
+                                    "The set of all real numbers",
+                                    "A finite set",
+                                    "The empty set",
+                                    "A subset"
+                                ],
+                                "correctAnswer": 2,
+                                "hint": "It's used to describe a set that contains no elements.",
+                                "explanation": "The symbol ∅ represents the empty set, which is a set that contains no elements."
+                            }
+                        ]
+                    },
+                    {
+                        "id": 9002,
+                        "name": "WEEK 2",
+                        "questions": [
+                            {
+                                "id": 6004,
+                                "text": "Which of the following statements correctly represents the negation of P ∨ Q?",
+                                "options": [
+                                    "¬P∨¬Q",
+                                    "¬P∧¬Q",
+                                    "¬(P∨Q)",
+                                    "P∧Q"
+                                ],
+                                "correctAnswer": 1,
+                                "hint": "Apply De Morgan's Laws to ¬(P∨Q).",
+                                "explanation": "The negation of a disjunction (∧) of the negated variables. By De Morgan's Laws, ¬(P∨Q)≡¬P∧¬Q."
+                            },
+                            {
+                                "id": 6005,
+                                "text": "Suppose P is x > 5 and Q is x < 10. Which of the following statements is not equivalent to ¬(P∨Q)?",
+                                "options": [
+                                    "¬P∧¬Q",
+                                    "x≤5∧x≥10",
+                                    "x>5∨x<10",
+                                    "None of the above"
+                                ],
+                                "correctAnswer": 2,
+                                "hint": "Focus on ¬(P∨Q) using logical equivalence.",
+                                "explanation": "¬(P∨Q)≡¬P∧¬Q. Translating P and Q, we get x≤5∧x≥10, which is a contradiction. Option C is not equivalent because it represents P∨Q, not its negation."
+                            },
+                            {
+                                "id": 6006,
+                                "text": "If P is true and Q is false, what is the truth value of P∨Q and its negation, ¬(P∨Q)?",
+                                "options": [
+                                    "P∨Q is true; ¬(P∨Q) is false",
+                                    "P∨Q is false; ¬(P∨Q) is true",
+                                    "P∨Q is true; ¬(P∨Q) is true",
+                                    "P∨Q is false; ¬(P∨Q) is false"
+                                ],
+                                "correctAnswer": 0,
+                                "hint": "Recall that P∨Q is true if at least one of Q is true.",
+                                "explanation": "Since P is true, P∨Q is true regardless of Q's value. The negation ¬(P∨Q) is false because the original statement is true."
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

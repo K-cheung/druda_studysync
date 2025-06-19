@@ -1,0 +1,9 @@
+We all designed the application together. 
+
+Jimmy and Kayli were the main developers to code the app. 
+
+Jerry was writing the tests
+
+Kathryne was mainly writing the specifications and documenting source code
+
+Yuta was adding questions, answers, and hints to our database.
